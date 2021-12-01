@@ -1,0 +1,14 @@
+.nav {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    background-color: purple;
+    font-size: 38px;
+    color: red;
+  }
+
+  &__list {
+    display: flex;
+    text-decoration: none;
+  }
+}

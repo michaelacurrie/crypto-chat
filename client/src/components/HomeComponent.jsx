@@ -1,26 +1,8 @@
 import React from "react";
 
-export default function Home() {
+export default function HomeComponent() {
   return (
     <>
-      <nav className="nav">
-        <div className="nav__container">
-          <div className="nav__container-left">
-            <p>CryptoChat</p>
-          </div>
-
-          <div className="nav__container-right">
-            <ul className="nav__list">
-              <li className="nav__list-item">HOME</li>
-              <li className="nav__list-item">CHAT</li>
-              <li className="nav__list-item">FAQ</li>
-              <li className="nav__list-item">RESOURCES</li>
-              <li className="nav__list-item">CONTACT</li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
       <section className="hero">
         <div className="hero__container">
           <div className="hero__container-left">
@@ -75,11 +57,12 @@ export default function Home() {
         </div>
 
         <div className="information__image-box">
-          <img src="#" alt="crypto currency image" />
+          {/* <img src="#" alt="crypto currency image" /> */}
         </div>
       </section>
 
       <section className="carousel">
+        <h2 className="carousel__title">Follow Our Instagram Page</h2>
         <div className="carousel__container">
           <p>Image Carousel Will Go Here</p>
         </div>
