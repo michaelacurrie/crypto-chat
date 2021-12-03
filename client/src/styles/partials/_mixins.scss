@@ -1,3 +1,5 @@
+@use "./variables";
+
 @mixin tablet-breakpoint {
   @media screen and (min-width: $tablet-screensize) {
     @content;

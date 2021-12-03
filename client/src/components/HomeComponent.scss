@@ -1,0 +1,258 @@
+@import "../styles/partials/variables";
+@import "../styles/partials/mixins";
+
+.hero {
+  &__title {
+    color: white;
+    z-index: 20;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  &__text {
+    color: #fff;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  &__btn {
+    margin-top: 1.3rem;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 0.7rem 1.2rem;
+    letter-spacing: 1px;
+    border-radius: 0.25rem;
+    position: relative;
+    cursor: pointer;
+    &::after {
+      content: "";
+      transition: all 0.3s ease;
+      position: absolute;
+      height: 100%;
+      top: 0;
+      left: 0;
+      width: 0;
+      background-color: $bright-pink;
+      color: #fff;
+    }
+
+    &:hover::after {
+      width: 100%;
+      color: #fff;
+    }
+  }
+
+  .hero__container {
+    background-image: url("../assets/crypto-chat-hero.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 92vh;
+
+    &-overlay {
+      background-color: #003062;
+      height: 92vh;
+      opacity: 0.7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20%;
+      z-index: 2;
+
+      @include desktop-breakpoint {
+        padding-top: 20rem;
+      }
+    }
+
+    &-left {
+      width: 90%;
+      z-index: 3;
+    }
+    &-right {
+      width: 70%;
+    }
+
+    &-title {
+      font-size: 1.1rem;
+      color: #fff;
+      z-index: 20;
+      margin-top: 3.7rem;
+      margin-bottom: 1rem;
+    }
+
+    &-text {
+      font-size: 1rem;
+      color: red;
+      z-index: 10;
+    }
+    input {
+      display: block;
+      padding: 0.5rem 1.2rem;
+      width: 100%;
+      border-radius: 0.25rem;
+      border: 1px solid #fff;
+    }
+  }
+}
+
+.card {
+  @include desktop-breakpoint {
+    // background: #ff184c;
+
+    background: url("../assets/person-coding-desk.jpeg");
+    background-size: cover;
+    padding: 2rem 0.3rem;
+    background-position: 56rem;
+    background-repeat: no-repeat;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-top: 3.125rem;
+
+    @include desktop-breakpoint {
+      margin-bottom: 2.4rem;
+      font-size: 3rem;
+    }
+  }
+
+  &__container {
+    width: 50%;
+    margin: 0.5rem auto;
+    @include desktop-breakpoint {
+      width: 80%;
+      margin: 2rem auto;
+    }
+  }
+  &__group {
+    @include desktop-breakpoint {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__item {
+    margin-bottom: 1.5rem;
+    @include desktop-breakpoint {
+      transition: all 0.3s linear;
+      width: 100%;
+      margin-right: 2rem;
+      border: 1px solid #eeee;
+      padding: 1rem;
+      position: relative;
+      box-shadow: 0 8px 30px 3px #0000000f;
+      background: #fff;
+    }
+    &:hover {
+      transform: translateY(-5%);
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 239px;
+
+    img {
+      width: 100%;
+      transition: 0.13s linear;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+  &__body {
+    text-align: center;
+
+    &-list {
+      list-style: none;
+    }
+
+    @include desktop-breakpoint {
+      padding: 0.4rem 1rem;
+    }
+
+    ul {
+      @include desktop-breakpoint {
+        list-style: none;
+        margin-bottom: 3rem;
+      }
+    }
+
+    li {
+      @include desktop-breakpoint {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+  &__footer {
+    background: $modern-blue;
+    color: white;
+    padding: 1rem 1.8rem;
+    border: 1px solid #ddd;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 2rem;
+
+    @include desktop-breakpoint {
+      padding: 1rem 1.8rem;
+      border: 1px solid #ddd;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin-top: 2rem;
+    }
+  }
+}
+
+.information {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include desktop-breakpoint {
+      display: flex;
+    }
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__crypto-chat {
+    font-size: 1rem;
+  }
+
+  &__list {
+    letter-spacing: 2px;
+
+    &-item {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__crypto-img {
+    height: 300px;
+    width: 300px;
+    background-image: url(../assets/people-chatting.jpeg);
+    background-repeat: none;
+    background-size: cover;
+    margin: auto;
+    display: block;
+    width: 90%;
+  }
+}

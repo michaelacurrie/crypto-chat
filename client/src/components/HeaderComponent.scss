@@ -1,14 +1,40 @@
+@use "../styles/partials/variables" as *;
+
 .nav {
+  background-color: #ffccdc;
+  height: 8vh;
+
   &__container {
     display: flex;
     justify-content: space-between;
-    background-color: purple;
-    font-size: 38px;
-    color: red;
+    background-color: red;
+
+    color: #323232;
+    align-items: center;
+    height: 8vh;
+  }
+
+  &__container-left p {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-left: 1rem;
+  }
+
+  &__container-right {
+    background-color: #ffccdc;
   }
 
   &__list {
     display: flex;
     text-decoration: none;
+    list-style: none;
+    margin-left: 1rem;
+    font-size: 0.875rem;
+    align-items: baseline;
+    align-content: baseline;
+  }
+
+  &__list-item {
+    margin-right: 1.5rem;
   }
 }
