@@ -20,18 +20,22 @@ export default function FooterComponent() {
 
           <div className="footer__details">
             <h4 className="footer__details-title">Details</h4>
-            <p>Location: Vancouver,BC</p>
-            <p>Email:michael@cryptochat.com</p>
-            <p>Toll-Free:+1(800)-604-932-1212</p>
+            <ul>
+              <li>Location: Vancouver,BC</li>
+              <li>Email:michael@cryptochat.com</li>
+              <li>Toll-Free:+1(800)-604-932-1212</li>
+            </ul>
           </div>
 
           <div className="footer__privacy">
             <h4 className="footer__privacy-title">Other</h4>
-            <p> Newsroom</p>
-            <p> Investors</p>
-            <p> Events</p>
-            <p> Privacy</p>
-            <p> Ethics & Compliance</p>
+            <ul className="footer__privacy-list">
+              <li className="footer__privacy-item"> Newsroom</li>
+              <li className="footer__privacy-item"> Investors</li>
+              <li className="footer__privacy-item"> Events</li>
+              <li className="footer__privacy-item"> Privacy</li>
+              <li className="footer__privacy-item"> Ethics & Compliance</li>
+            </ul>
           </div>
         </div>
       </footer>

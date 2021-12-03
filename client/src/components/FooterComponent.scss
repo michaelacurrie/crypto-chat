@@ -2,7 +2,32 @@
 @import "../styles/partials/mixins";
 
 .footer {
+  margin-top: 3.125rem;
+  background-color: $dark-blue;
+
+  @include desktop-breakpoint {
+    margin-top: 5.125rem;
+  }
+
   &__container {
-    background-color: $dark-blue;
+    color: white;
+    width: 90%;
+    margin: auto;
+  }
+
+  &__social {
+    color: #fff;
+  }
+
+  &__details-title {
+    color: #fff;
+  }
+
+  &__privacy-title {
+    margin: 1rem 0;
+  }
+
+  &__privacy-list {
+    padding-bottom: 3.125rem;
   }
 }

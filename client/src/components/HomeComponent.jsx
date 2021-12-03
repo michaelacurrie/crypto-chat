@@ -181,7 +181,7 @@ export default function HomeComponent() {
             data={data}
             time={4000}
             width="850px"
-            height="500px"
+            // height="500px"
             captionStyle={captionStyle}
             radius="10px"
             slideNumber={true}
@@ -198,7 +198,6 @@ export default function HomeComponent() {
             style={{
               textAlign: "center",
               maxWidth: "850px",
-              maxHeight: "500px",
               margin: "40px auto",
             }}
           />
