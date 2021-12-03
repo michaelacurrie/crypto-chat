@@ -1,6 +1,5 @@
 @import "../styles/partials/variables";
 @import "../styles/partials/mixins";
-
 .footer {
   margin-top: 3.125rem;
   background-color: $dark-blue;
@@ -17,10 +16,32 @@
 
   &__social {
     color: #fff;
+
+    &-title {
+      padding: 1rem 0;
+    }
+
+    &-icon-container {
+      display: flex;
+      @include desktop-breakpoint {
+        display: flex;
+        justify-content: initial;
+      }
+    }
+
+    &-icons {
+      padding-left: 1.25rem;
+
+      @include desktop-breakpoint {
+        display: flex;
+        flex-direction: row;
+      }
+    }
   }
 
   &__details-title {
     color: #fff;
+    margin: 1rem 0;
   }
 
   &__privacy-title {

@@ -1,5 +1,9 @@
 import React from "react";
 import "./FooterComponent.scss";
+import facebook from "../assets/social icons/facebook.svg";
+import twitter from "../assets/social icons/twitter.svg";
+import instagram from "../assets/social icons/instagram (1).svg";
+import email from "../assets/social icons/email (1).svg";
 
 export default function FooterComponent() {
   return (
@@ -7,13 +11,26 @@ export default function FooterComponent() {
       <footer className="footer">
         <div className="footer__container">
           <div className="footer__social">
-            <h4>Follow Crypto Chat On The Web</h4>
+            <h4 className="footer__social-title">
+              Follow Crypto Chat On The Web
+            </h4>
             <div className="footer__social-container">
               <ul className="footer__social-list">
-                <li className="footer__social-icons"></li>
-                <li className="footer__social-icons"></li>
-                <li className="footer__social-icons"></li>
-                <li className="footer__social-icons"></li>
+                <div className="footer__social-icon-container">
+                  <li className="footer__social-icons facebook">
+                    <img src={facebook} alt="facebook icon" />
+                  </li>
+
+                  <li className="footer__social-icons  twitter">
+                    <img src={twitter} alt="twitter icon" />
+                  </li>
+                  <li className="footer__social-icons">
+                    <img src={instagram} alt="instagram icon" />
+                  </li>
+                  <li className="footer__social-icons">
+                    <img src={email} alt="email icon" />
+                  </li>
+                </div>
               </ul>
             </div>
           </div>
