@@ -1,6 +1,29 @@
 @import "../styles/partials/variables";
 @import "../styles/partials/mixins";
 
+.header {
+  height: 100vh;
+  background-image: url(../assets/crypto-chat-hero.png);
+  background-position: center;
+  background-size: cover;
+  @include desktop-breakpoint {
+    height: 100vh;
+    background-image: url(../assets/crypto-chat-hero.png);
+    background-position: center;
+    background-size: cover;
+  }
+  &__overlay {
+    background-color: $dark-blue;
+    opacity: 0.7;
+    height: 100vh;
+    @include desktop-breakpoint {
+      background-color: $dark-blue;
+      opacity: 0.7;
+      height: 100vh;
+    }
+  }
+}
+
 .hero {
   &__title {
     color: white;
@@ -46,15 +69,7 @@
   }
 
   .hero__container {
-    background-image: url("../assets/crypto-chat-hero.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 92vh;
-
     &-overlay {
-      background-color: #003062;
-      height: 92vh;
       opacity: 0.7;
       display: flex;
       flex-direction: column;

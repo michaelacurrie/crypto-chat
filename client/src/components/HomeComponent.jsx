@@ -1,11 +1,19 @@
 import React from "react";
+import HeaderComponent from "./HeaderComponent";
 import "../components/HomeComponent.scss";
+import { Carousel } from "react-carousel-minimal";
 import image1 from "../assets/Crypto-logos/1.png";
 import image2 from "../assets/Crypto-logos/2.png";
 import image3 from "../assets/Crypto-logos/3.png";
 import image4 from "../assets/Crypto-logos/4.png";
 import image5 from "../assets/Crypto-logos/5.png";
 import image6 from "../assets/Crypto-logos/6.png";
+import btcStatue from "../assets/instagram-feed/bitcoin-statue-purple.jpeg";
+import spaceMan from "../assets/instagram-feed/flying-space-man.jpeg";
+import cardanoCoins from "../assets/instagram-feed/cardano-coins-purple.jpeg";
+import macComputer from "../assets/instagram-feed/mac-computer.jpg";
+import chatBubble from "../assets/instagram-feed/chat-bubble-pink.jpg";
+import desktopComputer from "../assets/instagram-feed/desktop-setup-purple-pink.jpg";
 
 export default function HomeComponent() {
   const cardInfo = [
@@ -40,37 +48,84 @@ export default function HomeComponent() {
       name: "tether",
     },
   ];
+
+  const data = [
+    {
+      id: 7,
+      image: btcStatue,
+    },
+
+    {
+      id: 8,
+      image: spaceMan,
+    },
+
+    {
+      id: 9,
+      image: cardanoCoins,
+    },
+
+    {
+      id: 10,
+      image: macComputer,
+    },
+    {
+      id: 11,
+      image: chatBubble,
+    },
+
+    {
+      id: 12,
+      image: desktopComputer,
+    },
+  ];
+
+  const captionStyle = {
+    fontSize: "2em",
+    fontWeight: "bold",
+  };
+  const slideNumberStyle = {
+    fontSize: "20px",
+    fontWeight: "bold",
+  };
+
   return (
     <>
-      <section className="hero">
-        <div className="hero__container">
-          <div className="hero__container-overlay">
-            <div className="hero__container-left">
-              <h1 className="hero__title">
-                CryptoChat-Level Up Your Knowledge And Wallet
-              </h1>
-              <p className="hero__text">
-                Learn about this new technology from industry leaders
-              </p>
-            </div>
+      <div className="header">
+        <div className="header__overlay">
+          <HeaderComponent />
 
-            <div className="hero__container-right">
-              <h2 className="hero__container-title">
-                Join Our Next Training Session, Feb 2022
-              </h2>
-              <form className="hero-form" action="submit">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Please provide an email address"
-                />
-                <button className="hero__btn">Register!</button>
-              </form>
+          <section className="hero">
+            <div className="hero__container">
+              <div className="hero__container-overlay">
+                <div className="hero__container-left">
+                  <h1 className="hero__title">
+                    CryptoChat-Level Up Your Knowledge And Wallet
+                  </h1>
+                  <p className="hero__text">
+                    Learn about this new technology from industry leaders
+                  </p>
+                </div>
+
+                <div className="hero__container-right">
+                  <h2 className="hero__container-title">
+                    Join Our Next Training Session, Feb 2022
+                  </h2>
+                  <form className="hero-form" action="submit">
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Please provide an email address"
+                    />
+                    <button className="hero__btn">Register!</button>
+                  </form>
+                </div>
+              </div>
             </div>
-          </div>
+          </section>
         </div>
-      </section>
+      </div>
 
       <section className="card">
         <div className="card__container">
@@ -117,16 +172,36 @@ export default function HomeComponent() {
 
           <div className="information__crypto-img"></div>
         </div>
-
-        <div className="information__image-box">
-          {/* <img src="#" alt="crypto currency image" /> */}
-        </div>
       </section>
 
       <section className="carousel">
         <h2 className="carousel__title">Follow Our Instagram Page</h2>
         <div className="carousel__container">
-          <p>Image Carousel Will Go Here</p>
+          <Carousel
+            data={data}
+            time={4000}
+            width="850px"
+            height="500px"
+            captionStyle={captionStyle}
+            radius="10px"
+            slideNumber={true}
+            slideNumberStyle={slideNumberStyle}
+            captionPosition="bottom"
+            automatic={true}
+            dots={true}
+            pauseIconColor="white"
+            pauseIconSize="40px"
+            slideBackgroundColor="darkgrey"
+            slideImageFit="cover"
+            thumbnails={true}
+            thumbnailWidth="100px"
+            style={{
+              textAlign: "center",
+              maxWidth: "850px",
+              maxHeight: "500px",
+              margin: "40px auto",
+            }}
+          />
         </div>
       </section>
     </>

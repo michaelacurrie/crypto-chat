@@ -1,27 +1,39 @@
-@use "../styles/partials/variables" as *;
+@import "../styles/partials/variables";
+@import "../styles/partials/mixins";
 
 .nav {
-  background-color: #ffccdc;
   height: 8vh;
+  @include desktop-breakpoint {
+    padding-top: 3rem;
+    z-index: 20;
+  }
 
   &__container {
     display: flex;
     justify-content: space-between;
-    background-color: red;
-
     color: #323232;
     align-items: center;
     height: 8vh;
+
+    @include desktop-breakpoint {
+      margin: auto;
+      width: 70%;
+    }
   }
 
   &__container-left p {
     font-size: 1.125rem;
     font-weight: bold;
     margin-left: 1rem;
+    color: #fff;
   }
 
   &__container-right {
-    background-color: #ffccdc;
+    @include desktop-breakpoint {
+      padding: 3rem 0;
+      background-color: $dark-blue;
+      color: #fff;
+    }
   }
 
   &__list {

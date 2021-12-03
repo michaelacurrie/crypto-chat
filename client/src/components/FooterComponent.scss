@@ -1,0 +1,8 @@
+@import "../styles/partials/variables";
+@import "../styles/partials/mixins";
+
+.footer {
+  &__container {
+    background-color: $dark-blue;
+  }
+}
