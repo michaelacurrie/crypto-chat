@@ -256,3 +256,12 @@
     width: 90%;
   }
 }
+
+.carousel {
+  &__title {
+    font-size: 2rem;
+    align-content: center;
+
+    margin: 2rem auto;
+  }
+}
