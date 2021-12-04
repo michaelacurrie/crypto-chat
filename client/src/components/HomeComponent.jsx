@@ -160,10 +160,9 @@ export default function HomeComponent() {
                 An Interactive Community
               </li>
               <li className="information__list-item">
-                Popular & Trending Topics{" "}
+                Popular & Trending Topics
               </li>
               <li className="information__list-item">
-                {" "}
                 Investment Tips & Forecasts
               </li>
               <li className="information__list-item">Group Training</li>

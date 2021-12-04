@@ -241,6 +241,10 @@
 
     @include desktop-breakpoint {
       display: flex;
+      flex-direction: row;
+      width: 80%;
+      margin: auto;
+      padding-bottom: 6.25rem;
     }
   }
 
@@ -261,14 +265,14 @@
   }
 
   &__crypto-img {
-    height: 300px;
-    width: 300px;
+    height: 500px;
+    width: 500px;
     background-image: url(../assets/people-chatting.jpeg);
     background-repeat: none;
     background-size: cover;
     margin: auto;
     display: block;
-    width: 90%;
+    width: 80%;
   }
 }
 
@@ -276,7 +280,11 @@
   &__title {
     font-size: 2rem;
     align-content: center;
-
     margin: 2rem auto;
+
+    @include desktop-breakpoint {
+      font-size: 2rem;
+      margin-left: 11.5rem;
+    }
   }
 }
