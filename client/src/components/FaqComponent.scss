@@ -28,9 +28,19 @@
       color: $dark-blue;
       cursor: pointer;
     }
+  }
 
-    &__content {
-      color: black;
+  &__answer {
+    color: black;
+    overflow: hidden;
+    max-height: 0;
+  }
+
+  &__answer-show {
+    @include desktop-breakpoint {
+      height: auto;
+      max-height: 9999px;
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
   }
 }
