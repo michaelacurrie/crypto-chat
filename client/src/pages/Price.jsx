@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import HeaderComponent from "../components/HeaderComponent";
-import TopicsComponent from "../components/TopicsComponent";
+import PriceComponent from "../components/PriceComponent";
 
 const Topics = () => {
   //  "hostname": "rest.coinapi.io",
@@ -22,7 +22,7 @@ const Topics = () => {
   return (
     <div>
       <HeaderComponent useHomeStyle={false} />
-      <TopicsComponent />
+      <PriceComponent />
     </div>
   );
 };

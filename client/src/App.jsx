@@ -1,7 +1,7 @@
 import Home from "./pages/HomePage/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Faq from "./pages/Faq";
-import Topics from "./pages/Topics";
+import Price from "./pages/Price";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/faq" element={<Faq />} />
-          <Route path="/topics" element={<Topics />} />
+          <Route path="/price" element={<Price />} />
         </Routes>
       </Router>
     </>

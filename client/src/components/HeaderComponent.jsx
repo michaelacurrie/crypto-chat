@@ -62,10 +62,10 @@ export default function HeaderComponent(props) {
                 </li>
                 <li className="nav__list-item">
                   <Link
-                    to="/topics"
+                    to="/price"
                     style={!useHomeStyle ? componentStyles.a : {}}
                   >
-                    TOPICS
+                    PRICE
                   </Link>
                 </li>
               </ul>

@@ -3,33 +3,29 @@ import React, { useEffect, useState } from "react";
 export default function TopicsComponent() {
   const [exchange, setExchange] = useState({});
   const [values, setValues] = useState({
-    asset: "",
-    symbol: "",
+    asset: "BTC",
+    symbol: "USD",
   });
-  const [value, setValue] = useState("");
 
-  useEffect(() => {
-    fetch("https://rest.coinapi.io/v1/exchangerate/BTC/USD", {
-      headers: {
-        "X-CoinAPI-Key": "CE9B8103-BC60-42F3-A867-B18BB5640FB2",
-      },
-    })
+  const getExchangeRate = () => {
+    fetch(
+      `https://rest.coinapi.io/v1/exchangerate/${values.asset}/${values.symbol}`,
+      {
+        headers: {
+          "X-CoinAPI-Key": "CE9B8103-BC60-42F3-A867-B18BB5640FB2",
+        },
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         setExchange(data); //functional
       });
-  }, []);
-
-  let car = {
-    model: "Rx",
-    make: "Toyota",
-    year: "1992",
   };
 
-  console.log(car);
-  car["make"] = "lexus";
-  console.log(car);
+  useEffect(() => {
+    getExchangeRate();
+  }, []);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -39,9 +35,13 @@ export default function TopicsComponent() {
     setValues({ ...values, [name]: e.target.value });
   };
 
+  const handleClick = () => {
+    getExchangeRate();
+  };
+
   return (
     <>
-      {value}
+      {exchange.error ? <p>Too many request</p> : null}
       <div className="asset">
         <div className="asset__container">
           <header className="asset__header">
@@ -57,19 +57,10 @@ export default function TopicsComponent() {
                 <option value="CAD">CAD</option>
                 <option value="gibberish">Mountain Dew</option>
               </select>
-              <input
-                type="checkbox"
-                name=""
-                id=""
-                onChange={handleChange}
-                value="yes"
-              />
-              <input
-                type="text"
-                placeholder="Enter value" //change keypress click sub input.addEventListenr("change", handleChange)
-                onChange={handleChange}
-              />
-              <button>Get Exchange Rate</button>
+
+              <button className="asset__btn" onClick={handleClick}>
+                Get Exchange Rate
+              </button>
             </div>
           </header>
           <div className="asset__group">
@@ -80,9 +71,11 @@ export default function TopicsComponent() {
             </div>
             <div className="asset__group-left">
               <div className="asset_info">
-                <h3>BTC / USD</h3>
-                <p>$44444</p>
-                <p>wed 2nd oct 2021</p>
+                <h3>
+                  {exchange.asset_id_base} / {exchange.asset_id_quote}
+                </h3>
+                <p>${exchange.rate}</p>
+                <p>{exchange.time}</p>
               </div>
             </div>
           </div>
