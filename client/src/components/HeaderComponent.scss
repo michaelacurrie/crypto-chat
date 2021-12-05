@@ -2,10 +2,10 @@
 @import "../styles/partials/mixins";
 
 .nav {
-  height: 8vh;
+  // height: 8vh;
   @include desktop-breakpoint {
     padding-top: 3rem;
-    z-index: 20;
+    z-index: 2;
   }
 
   &__container {
@@ -46,7 +46,9 @@
     align-content: baseline;
   }
 
-  &__list-item {
+  &__list-item a {
     margin-right: 1.5rem;
+    color: #fff;
+    text-decoration: none;
   }
 }

@@ -1,23 +1,73 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./HeaderComponent.scss";
+import styles from "./header.module.scss";
 
-export default function HeaderComponent() {
+export default function HeaderComponent(props) {
+  const { useHomeStyle } = props;
+  const componentStyles = {
+    nav: {
+      paddingTop: "0",
+      boxShadow: "0 1px 12px -5px #0000004f",
+    },
+    p: {
+      color: "#000",
+    },
+    a: {
+      color: "#000",
+    },
+    navContainerRight: {
+      background: "transparent",
+    },
+  };
   return (
     <>
       <header>
-        <nav className="nav">
+        <nav className={`${!useHomeStyle && styles.nav} nav`}>
           <div className="nav__container">
             <div className="nav__container-left">
-              <p className="nav__wordmark">CryptoChat</p>
+              <p
+                className="nav__wordmark"
+                style={!useHomeStyle ? componentStyles.p : {}}
+              >
+                CryptoChat
+              </p>
             </div>
 
-            <div className="nav__container-right">
+            <div
+              className="nav__container-right"
+              style={!useHomeStyle ? componentStyles.navContainerRight : {}}
+            >
               <ul className="nav__list">
-                <li className="nav__list-item">HOME</li>
-                <li className="nav__list-item">CHAT</li>
-                <li className="nav__list-item">FAQ</li>
-                <li className="nav__list-item">RESOURCES</li>
-                <li className="nav__list-item">CONTACT</li>
+                <li className="nav__list-item">
+                  <Link to="/" style={!useHomeStyle ? componentStyles.a : {}}>
+                    HOME
+                  </Link>
+                </li>
+                <li className="nav__list-item">
+                  <Link
+                    to="/chat"
+                    style={!useHomeStyle ? componentStyles.a : {}}
+                  >
+                    CHAT
+                  </Link>
+                </li>
+                <li className="nav__list-item">
+                  <Link
+                    to="/faq"
+                    style={!useHomeStyle ? componentStyles.a : {}}
+                  >
+                    FAQ{" "}
+                  </Link>
+                </li>
+                <li className="nav__list-item">
+                  <Link
+                    to="/topics"
+                    style={!useHomeStyle ? componentStyles.a : {}}
+                  >
+                    TOPICS
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

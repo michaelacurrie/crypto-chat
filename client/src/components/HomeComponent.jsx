@@ -1,6 +1,7 @@
 import React from "react";
 import HeaderComponent from "./HeaderComponent";
 import "../components/HomeComponent.scss";
+
 import { Carousel } from "react-carousel-minimal";
 import image1 from "../assets/Crypto-logos/1.png";
 import image2 from "../assets/Crypto-logos/2.png";
@@ -93,7 +94,7 @@ export default function HomeComponent() {
     <>
       <div className="header">
         <div className="header__overlay">
-          <HeaderComponent />
+          <HeaderComponent useHomeStyle={true} />
 
           <section className="hero">
             <div className="hero__container">
@@ -141,7 +142,7 @@ export default function HomeComponent() {
                     <li className="card__body-text">
                       <strong>price</strong> <span>$10,000</span>
                     </li>
-                    <li lassName="card__body-text">Buy</li>
+                    <li className="card__body-text">Buy</li>
                   </ul>
                 </div>
                 <div className="card__footer">{i.name}</div>
