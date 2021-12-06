@@ -1,5 +1,7 @@
 import React from "react";
 import HeaderComponent from "./HeaderComponent";
+import ScrollAnimation from "react-animate-on-scroll";
+import AOS from "aos";
 import "../components/HomeComponent.scss";
 
 import { Carousel } from "react-carousel-minimal";
@@ -17,6 +19,7 @@ import chatBubble from "../assets/instagram-feed/chat-bubble-pink.jpg";
 import desktopComputer from "../assets/instagram-feed/desktop-setup-purple-pink.jpg";
 
 export default function HomeComponent() {
+  AOS.init();
   const cardInfo = [
     {
       id: 1,
@@ -100,7 +103,7 @@ export default function HomeComponent() {
             <div className="hero__container">
               <div className="hero__container-overlay">
                 <div className="hero__container-left">
-                  <h1 className="hero__title">
+                  <h1 className="hero__title" data-aos="fade-up">
                     CryptoChat-Level Up Your Knowledge And Wallet
                   </h1>
                   <p className="hero__text">
@@ -130,10 +133,12 @@ export default function HomeComponent() {
 
       <section className="card">
         <div className="card__container">
-          <h2 className="card__title">Trending Coins</h2>
+          <h2 className="card__title" data-aos="fade-up">
+            Trending Coins
+          </h2>
           <div className="card__group">
             {cardInfo.map((i) => (
-              <div className="card__item" key={i.id}>
+              <div className="card__item" key={i.id} data-aos="fade-right">
                 <div className="card__img">
                   <img src={i.image} alt="" />
                 </div>
@@ -152,7 +157,12 @@ export default function HomeComponent() {
         </div>
       </section>
 
-      <section className="information">
+      <section
+        className="information"
+        data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000"
+      >
         <div className="information__container">
           <div className="information__crypto-chat">
             <h2 className="information__title">What Is Crypto Chat?</h2>

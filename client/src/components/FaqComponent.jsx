@@ -1,4 +1,5 @@
 import React from "react";
+import ScrollAnimation from "react-animate-on-scroll";
 import { data } from "../data";
 import { useState } from "react";
 import "./FaqComponent.scss";
@@ -23,12 +24,15 @@ export default function FaqComponent() {
                 <h2>{item.question}</h2>
                 <span>{selected === i ? "-" : "+"}</span>
               </div>
-
-              <div
-                className={selected === i ? "faq__answer-show" : "faq__answer"}
-              >
-                {item.answer}
-              </div>
+              <ScrollAnimation animateIn="wobble">
+                <div
+                  className={
+                    selected === i ? "faq__answer-show" : "faq__answer"
+                  }
+                >
+                  {item.answer}
+                </div>
+              </ScrollAnimation>
             </div>
           ))}
         </div>
