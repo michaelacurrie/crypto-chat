@@ -104,7 +104,7 @@ export default function HomeComponent() {
               <div className="hero__container-overlay">
                 <div className="hero__container-left">
                   <h1 className="hero__title" data-aos="fade-up">
-                    CryptoChat-Level Up Your Knowledge And Wallet
+                    CryptoChat-Level Up Your Knowledge!
                   </h1>
                   <p className="hero__text">
                     Learn about this new technology from industry leaders

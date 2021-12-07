@@ -30,6 +30,9 @@
     z-index: 2;
     font-size: 1.5rem;
     text-align: center;
+    @include desktop-breakpoint {
+      font-size: 2.6rem;
+    }
   }
   &__text {
     color: #fff;
@@ -37,6 +40,9 @@
     letter-spacing: 2px;
     margin-top: 1rem;
     text-align: center;
+    @include desktop-breakpoint {
+      font-size: 1rem;
+    }
   }
 
   &__btn {
@@ -50,27 +56,32 @@
     border-radius: 0.25rem;
     position: relative;
     cursor: pointer;
-    &::after {
-      content: "";
-      transition: all 0.3s ease;
-      position: absolute;
-      height: 100%;
-      top: 0;
-      left: 0;
-      width: 0;
-      background-color: $bright-pink;
-      color: #fff;
+    transition: 0.25s ease-in;
+    &:hover {
+      border: 1px solid #000;
+      color: #000;
+      background-color: #fff;
     }
+    // &::after {
+    //   content: "";
+    //   transition: all 0.3s ease;
+    //   position: absolute;
+    //   height: 0;
+    //   top: 0;
+    //   left: 0;
+    //   width: 0;
+    //   background-color: $bright-pink;
+    //   color: #fff;
+    // }
 
-    &:hover::after {
-      width: 100%;
-      color: #fff;
-    }
+    // &:hover::after {
+    //   height: 100%;
+    //   color: #fff;
+    // }
   }
 
   .hero__container {
     &-overlay {
-      opacity: 0.7;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -78,16 +89,23 @@
       z-index: 2;
 
       @include desktop-breakpoint {
-        padding-top: 20rem;
+        padding-top: 15rem;
       }
     }
 
     &-left {
       width: 90%;
       z-index: 3;
+
+      @include desktop-breakpoint {
+        width: 90%;
+      }
     }
     &-right {
       width: 70%;
+      @include desktop-breakpoint {
+        width: 55%;
+      }
     }
 
     &-title {
@@ -96,12 +114,20 @@
       z-index: 2;
       margin-top: 3.7rem;
       margin-bottom: 1rem;
+      @include desktop-breakpoint {
+        font-size: 1.5rem;
+        text-align: center;
+      }
     }
 
     &-text {
       font-size: 1rem;
-      color: red;
       z-index: 1;
+      text-align: center;
+      @include desktop-breakpoint {
+        text-align: center;
+        font-size: 1rem;
+      }
     }
     input {
       display: block;

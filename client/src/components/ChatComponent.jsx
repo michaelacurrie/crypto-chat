@@ -1,46 +1,62 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router";
+import { toast } from "react-toastify";
 import io from "socket.io-client";
-
+const socket = io("http://localhost:8080");
 const ChatComponent = () => {
+  const { roomName } = useParams();
   const [chatMessage, setChatMessage] = useState("");
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("Anonymous");
   const [chat, setChat] = useState([]);
-  const socket = io("http://localhost:8080");
+  const [toggleMessageSent, setTogglemessageSent] = useState(false);
+  const socketRef = useRef();
+  // const socket = io("http://localhost:8080");
+  let tempMessages = [];
 
   useEffect(() => {
-    socket.on("connect", () => {
-      // join socket connection from server
-      console.log(socket.id);
-      socket.on("chat", (data) => {
-        console.log(data);
-        setChat([...chat, data]);
-      });
+    // socket = io("http://localhost:8080");
+    socket.on("chat", (data) => {
+      tempMessages = [...tempMessages, data];
+      localStorage.setItem("messages", JSON.stringify(data));
+      // setTogglemessageSent(!toggleMessageSent);
+      setChat([...chat, data]);
     });
-  }, [chat]);
+
+    socket.on("botMessage", (data) => {
+      toast.info(data);
+    });
+  }, [toggleMessageSent, chat]);
+
+  // useEffect(() => {
+  //   const temp = JSON.parse(localStorage.getItem("messages"));
+  //   setChat([...chat, temp]);
+  //   console.log(chat, "ontoggle");
+  // }, [toggleMessageSent]);
+
+  useEffect(() => {
+    socket.emit("joinRoom", { username, room: roomName });
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
-    socket.emit("chat", { username, message: chatMessage });
+    setTogglemessageSent(!toggleMessageSent);
+    socket.emit("chat", { username, message: chatMessage }); //dispatch chat event along with the data to the server
   }
+
   return (
     <section>
       <div>
         <div>
           {chat.length &&
-            chat.map((i) => (
-              <>
+            chat.map((i, index) => (
+              <div key={index}>
                 <p>username: {i.username}</p>
                 <p>message: {i.message}</p>
-              </>
+              </div>
             ))}
         </div>
         <form onSubmit={handleSubmit}>
           <input type="text" onChange={(e) => setChatMessage(e.target.value)} />
-          <input
-            type="text"
-            placeholder="username"
-            onChange={(e) => setUsername(e.target.value)}
-          />
           <button>send</button>
         </form>
       </div>

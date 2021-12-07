@@ -46,7 +46,7 @@ export default function HeaderComponent(props) {
                 </li>
                 <li className="nav__list-item">
                   <Link
-                    to="/chat"
+                    to="/chatRoom"
                     style={!useHomeStyle ? componentStyles.a : {}}
                   >
                     CHAT

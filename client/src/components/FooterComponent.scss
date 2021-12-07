@@ -12,6 +12,12 @@
     color: white;
     width: 90%;
     margin: auto;
+
+    @include desktop-breakpoint {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
   }
 
   &__social {

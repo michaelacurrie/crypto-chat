@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Faq from "./pages/Faq";
 import Price from "./pages/Price";
 import Chat from "./pages/Chat";
+import TopicDetailsComponent from "./components/TopicDetailsComponent";
+import ChatRoom from "./pages/ChatRoom";
 
 function App() {
   return (
@@ -12,7 +14,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/price" element={<Price />} />
-          <Route path="/chat/:id" element={<Chat />} />
+          <Route path="/chatRoom" element={<ChatRoom />} />
+          <Route path="/chat/:roomName" element={<Chat />} />
+          <Route path="/topic/:id" element={<TopicDetailsComponent />} />
         </Routes>
       </Router>
     </>

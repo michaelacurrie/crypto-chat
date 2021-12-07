@@ -1,0 +1,20 @@
+@import "../styles/partials/variables";
+@import "../styles/partials/mixins";
+
+.topics {
+  &__head {
+    @include desktop-breakpoint {
+      margin-left: 11.5rem;
+    }
+  }
+
+  &__container {
+    @include desktop-breakpoint {
+      display: flex;
+      justify-content: space-around;
+      width: 55%;
+      margin: 0 auto;
+      border: 1px solid purple;
+    }
+  }
+}

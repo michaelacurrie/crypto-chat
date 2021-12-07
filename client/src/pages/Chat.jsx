@@ -7,7 +7,6 @@ const Chat = () => {
   return (
     <div>
       <HeaderComponent useHomeStyle={false} />
-      <TopicDetailsComponent />
       <ChatComponent />
     </div>
   );

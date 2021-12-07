@@ -24,15 +24,11 @@ export default function FaqComponent() {
                 <h2>{item.question}</h2>
                 <span>{selected === i ? "-" : "+"}</span>
               </div>
-              <ScrollAnimation animateIn="wobble">
-                <div
-                  className={
-                    selected === i ? "faq__answer-show" : "faq__answer"
-                  }
-                >
-                  {item.answer}
-                </div>
-              </ScrollAnimation>
+              <div
+                className={selected === i ? "faq__answer-show" : "faq__answer"}
+              >
+                {item.answer}
+              </div>
             </div>
           ))}
         </div>
