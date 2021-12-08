@@ -26,12 +26,13 @@ export default function HeaderComponent(props) {
         <nav className={`${!useHomeStyle && styles.nav} nav`}>
           <div className="nav__container">
             <div className="nav__container-left">
-              <p
+              <Link
+                to="/"
                 className="nav__wordmark"
                 style={!useHomeStyle ? componentStyles.p : {}}
               >
                 CryptoChat
-              </p>
+              </Link>
             </div>
 
             <div

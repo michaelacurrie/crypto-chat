@@ -22,7 +22,9 @@ const TopicsComponent = () => {
             <div className="topics__item">
               <h2 className="topics__titles">{i.title}</h2>
               <p className="topics__text">{i.description}</p>
-              <Link to={`/topic/${i.id}`}>View more</Link>
+              <Link className="topics__link" to={`/chatRoom`}>
+                View more
+              </Link>
             </div>
           ))}
       </div>

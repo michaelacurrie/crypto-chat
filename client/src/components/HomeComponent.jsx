@@ -17,6 +17,8 @@ import cardanoCoins from "../assets/instagram-feed/cardano-coins-purple.jpeg";
 import macComputer from "../assets/instagram-feed/mac-computer.jpg";
 import chatBubble from "../assets/instagram-feed/chat-bubble-pink.jpg";
 import desktopComputer from "../assets/instagram-feed/desktop-setup-purple-pink.jpg";
+import piggyBank from "../assets/instagram-feed/bitcoin-piggy-bank.jpeg";
+import bitcoinComputer from "../assets/instagram-feed/laptop-bitcoin-blue-bg.jpeg";
 
 export default function HomeComponent() {
   AOS.init();
@@ -81,6 +83,15 @@ export default function HomeComponent() {
     {
       id: 12,
       image: desktopComputer,
+    },
+    {
+      id: 13,
+      image: piggyBank,
+    },
+
+    {
+      id: 14,
+      image: bitcoinComputer,
     },
   ];
 
@@ -185,13 +196,12 @@ export default function HomeComponent() {
       </section>
 
       <section className="carousel">
-        <h2 className="carousel__title">Follow Our Instagram Page</h2>
+        <h2 className="carousel__title">Follow CryptoChat On Instagram</h2>
         <div className="carousel__container">
           <Carousel
             data={data}
             time={4000}
             width="850px"
-            // height="500px"
             captionStyle={captionStyle}
             radius="10px"
             slideNumber={true}

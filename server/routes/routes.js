@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
   res.json(getFile("./db/topics.json"));
 });
 
-router.get("/:id", (req, res) => {
+router.get("/topic/:id", (req, res) => {
   const data = getFile("./db/topics.json").find((i) => i.id == req.params.id);
   if (!data) return res.json({ error: "Topic id doesn't exist" });
   res.json(data);

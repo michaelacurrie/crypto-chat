@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router";
 import { toast } from "react-toastify";
+import "./ChatComponent.scss";
 import io from "socket.io-client";
 const socket = io("http://localhost:8080");
+
 const ChatComponent = () => {
   const { roomName } = useParams();
   const [chatMessage, setChatMessage] = useState("");
@@ -44,19 +46,37 @@ const ChatComponent = () => {
   }
 
   return (
-    <section>
-      <div>
-        <div>
+    <section className="chat">
+      <div className="chat__container">
+        <div className="chat__header">CryptoChat</div>
+        <div className="chat__box">
           {chat.length &&
             chat.map((i, index) => (
-              <div key={index}>
-                <p>username: {i.username}</p>
-                <p>message: {i.message}</p>
+              <div className="chat__box-group">
+                <div className="chat__box-avatar">
+                  <img
+                    src="https://www.seekpng.com/png/full/115-1150053_avatar-png-transparent-png-royalty-free-default-user.png"
+                    alt=""
+                  />
+                </div>
+                <div className="chat__box-message" key={index}>
+                  <div className="chat__box-message-group">
+                    <p className="chat__username">{i.username}</p>
+                    <p className="chat__time">
+                      {new Date().toLocaleTimeString()}
+                    </p>
+                  </div>
+                  <p className="chat__message">{i.message}</p>
+                </div>
               </div>
             ))}
         </div>
         <form onSubmit={handleSubmit}>
-          <input type="text" onChange={(e) => setChatMessage(e.target.value)} />
+          <input
+            type="text"
+            placeholder="Enter message"
+            onChange={(e) => setChatMessage(e.target.value)}
+          />
           <button>send</button>
         </form>
       </div>

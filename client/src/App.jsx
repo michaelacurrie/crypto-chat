@@ -15,7 +15,7 @@ function App() {
           <Route path="/faq" element={<Faq />} />
           <Route path="/price" element={<Price />} />
           <Route path="/chatRoom" element={<ChatRoom />} />
-          <Route path="/chat/:roomName" element={<Chat />} />
+          <Route path="/chat/:roomName/:username" element={<Chat />} />
           <Route path="/topic/:id" element={<TopicDetailsComponent />} />
         </Routes>
       </Router>

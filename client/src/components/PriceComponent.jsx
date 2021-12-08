@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./PriceComponent.scss";
 
 export default function TopicsComponent() {
   const [exchange, setExchange] = useState({});
@@ -6,6 +7,7 @@ export default function TopicsComponent() {
     asset: "BTC",
     symbol: "USD",
   });
+  const [loading, setLoading] = useState(true);
 
   const [symbols, setSymbols] = useState({});
 
@@ -22,7 +24,8 @@ export default function TopicsComponent() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setExchange(data); //functional
+        setLoading(false);
+        setExchange(data);
       });
   };
 
@@ -51,6 +54,7 @@ export default function TopicsComponent() {
   };
 
   const handleClick = () => {
+    setLoading(true);
     getExchangeRate();
     console.log(symbols[values.asset]);
   };
@@ -59,21 +63,30 @@ export default function TopicsComponent() {
     <>
       {exchange.error ? <p>Too many request</p> : null}
       <div className="asset">
+        <h1>Get Crypto Price</h1>
         <div className="asset__container">
           <header className="asset__header">
             <div className="asset__header-form">
-              <select name="asset" onChange={handleChange}>
+              <select
+                className="asset__dropdown"
+                name="asset"
+                onChange={handleChange}
+              >
                 <option value="">Select Asset</option>
+                <option value="BTC">BTC</option>
+                <option value="ETH">ETH</option>
                 {Object.keys(symbols).map((i, index) => (
                   <option key={index} value={i}>
                     {i}
                   </option>
                 ))}
-                <option value="BTC">BTC</option>
-                <option value="ETH">ETH</option>
               </select>
-              <select name="symbol" onChange={handleChange}>
-                <option value="">Select Symbol</option>
+              <select
+                className="asset__dropdown"
+                name="symbol"
+                onChange={handleChange}
+              >
+                <option value="">Select Symbol</option>d
                 <option value="USD">USD</option>
                 <option value="AUD">AUD</option>
                 <option value="GBP">GBP</option>
@@ -92,23 +105,22 @@ export default function TopicsComponent() {
             </div>
           </header>
           <div className="asset__group">
-            <div className="asset__group-right">
-              <div className="asset_img-container">
-                <img
-                  src={`https://min-api.cryptocompare.com${
-                    symbols[values.asset]?.ImageUrl
-                  }`}
-                  alt=""
-                />
-              </div>
-            </div>
             <div className="asset__group-left">
-              <div className="asset_info">
-                <h3>
-                  {values.asset} / {values.symbol}
-                </h3>
-                {symbols[values.asset]?.FullName}
-                <p>${exchange[values.symbol]}</p>
+              <div className="asset__info">
+                {loading ? (
+                  <div className="loader">Loading...</div>
+                ) : (
+                  <>
+                    <h3 className="asset__symbol">
+                      {values.asset} / {values.symbol}
+                    </h3>
+                    <p className="asset__lists">
+                      {symbols[values.asset]?.FullName}
+                    </p>
+
+                    <p className="asset__lists">${exchange[values.symbol]}</p>
+                  </>
+                )}
               </div>
             </div>
           </div>
