@@ -12,7 +12,6 @@
       position: relative;
       width: 70%;
       margin: auto;
-      //   box-shadow: 10px 10px 0px 2px rgba(0, 0, 0, 1);
       box-shadow: -14px 7px 56px -20px rgba(0, 0, 0, 0.31);
     }
   }
@@ -29,10 +28,6 @@
   }
   &__box {
     @include desktop-breakpoint {
-      //   background: url("https://previews.123rf.com/images/aldanna/aldanna1506/aldanna150600008/40902796-vector-seamless-mobile-apps-pattern-with-music-chat-gallery-speaking-bubble-email-magnifying-glass-s.jpg");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
       min-height: 70vh;
       height: 70vh;
       max-height: 70vh;
@@ -54,8 +49,8 @@
 
       img {
         @include desktop-breakpoint {
-          width: 40px;
-          border-radius: 40px;
+          width: 2.5rem;
+          border-radius: 2.5rem;
         }
       }
     }

@@ -2,7 +2,6 @@
 @import "../styles/partials/mixins";
 
 .nav {
-  // height: 8vh;
   @include desktop-breakpoint {
     padding-top: 3rem;
     z-index: 2;

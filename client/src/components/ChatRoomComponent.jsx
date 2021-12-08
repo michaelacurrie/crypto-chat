@@ -4,18 +4,9 @@ import "./ChatRoomComponent.scss";
 import bgImg from "../assets/rocket-pink-bg.jpeg";
 
 const ChatRoomComponent = () => {
-  const [chatRooms, setChatRooms] = useState([]);
   const [roomName, setRoomName] = useState("beginner");
   const [username, setUsername] = useState("Anonymous");
 
-  // useEffect(() => {
-  //   fetch("http://localhost:8080/api/v1/chatRoom")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       setChatRooms(data);
-  //     });
-  // }, []);
   return (
     <section className="chatRoom">
       <div class="chatRoom__container">
@@ -33,9 +24,6 @@ const ChatRoomComponent = () => {
                 <option value="">Select Room</option>
                 <option value="beginner">Beginner</option>
                 <option value="proffesional">Proffesional</option>
-                {/* {chatRooms.map((i) => (
-                  <option value={i.roomName}>{i.roomName}</option>
-                ))} */}
               </select>
               <input
                 type="text"

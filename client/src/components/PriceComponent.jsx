@@ -23,7 +23,6 @@ export default function TopicsComponent() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setLoading(false);
         setExchange(data);
       });
@@ -39,8 +38,6 @@ export default function TopicsComponent() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        console.log(Object.keys(data.Data));
         setSymbols(data.Data);
       });
   }, []);
@@ -48,15 +45,12 @@ export default function TopicsComponent() {
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log("name:", name);
-    console.log("value:", value);
     setValues({ ...values, [name]: e.target.value });
   };
 
   const handleClick = () => {
     setLoading(true);
     getExchangeRate();
-    console.log(symbols[values.asset]);
   };
 
   return (

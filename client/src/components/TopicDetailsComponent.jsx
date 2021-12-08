@@ -6,7 +6,6 @@ toast.configure();
 
 export default function TopicDetailsComponent() {
   const [topic, setTopic] = useState({});
-  const [username, setUsername] = useState("");
 
   const { id } = useParams();
   useEffect(() => {
@@ -24,16 +23,6 @@ export default function TopicDetailsComponent() {
         <h1>{topic.title}</h1>
         <h1>{topic.description}</h1>
       </div>
-
-      {/* <div>
-        <h1>Enter ChatRoom?</h1>
-        <input
-          type="text"
-          placeholder="username"
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <Link to={`/chat/${username}`}>Join Chat room</Link>
-      </div> */}
     </>
   );
 }

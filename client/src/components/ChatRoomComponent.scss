@@ -11,8 +11,8 @@
 
   &__container {
     position: relative;
-    width: 800px;
-    height: 500px;
+    width: 50rem;
+    height: 31.25rem;
     background: #fff;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -29,7 +29,6 @@
     position: relative;
     width: 50%;
     height: 100%;
-    background: #ff0;
     img {
       position: absolute;
       top: 0;
@@ -70,7 +69,7 @@
     border: none;
     outline: none;
     box-shadow: none;
-    margin: 8px 0;
+    margin: 0.5rem 0;
     font-size: 14px;
     letter-spacing: 1px;
     font-weight: 300;

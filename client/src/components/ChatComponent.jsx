@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { toast } from "react-toastify";
 import "./ChatComponent.scss";
@@ -6,37 +6,23 @@ import io from "socket.io-client";
 const socket = io("http://localhost:8080");
 
 const ChatComponent = () => {
-  const { roomName } = useParams();
+  const { roomName, userName } = useParams();
   const [chatMessage, setChatMessage] = useState("");
-  const [username, setUsername] = useState("Anonymous");
+  const [username] = useState(userName);
   const [chat, setChat] = useState([]);
   const [toggleMessageSent, setTogglemessageSent] = useState(false);
-  const socketRef = useRef();
-  // const socket = io("http://localhost:8080");
-  let tempMessages = [];
 
   useEffect(() => {
-    // socket = io("http://localhost:8080");
     socket.on("chat", (data) => {
-      tempMessages = [...tempMessages, data];
-      localStorage.setItem("messages", JSON.stringify(data));
-      // setTogglemessageSent(!toggleMessageSent);
       setChat([...chat, data]);
-    });
-
-    socket.on("botMessage", (data) => {
-      toast.info(data);
     });
   }, [toggleMessageSent, chat]);
 
-  // useEffect(() => {
-  //   const temp = JSON.parse(localStorage.getItem("messages"));
-  //   setChat([...chat, temp]);
-  //   console.log(chat, "ontoggle");
-  // }, [toggleMessageSent]);
-
   useEffect(() => {
     socket.emit("joinRoom", { username, room: roomName });
+    socket.on("botMessage", (data) => {
+      toast.info(data);
+    });
   }, []);
 
   function handleSubmit(e) {
@@ -56,7 +42,7 @@ const ChatComponent = () => {
                 <div className="chat__box-avatar">
                   <img
                     src="https://www.seekpng.com/png/full/115-1150053_avatar-png-transparent-png-royalty-free-default-user.png"
-                    alt=""
+                    alt="avatar"
                   />
                 </div>
                 <div className="chat__box-message" key={index}>

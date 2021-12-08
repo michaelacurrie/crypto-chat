@@ -1,6 +1,5 @@
 import React from "react";
 import HeaderComponent from "./HeaderComponent";
-import ScrollAnimation from "react-animate-on-scroll";
 import AOS from "aos";
 import "../components/HomeComponent.scss";
 

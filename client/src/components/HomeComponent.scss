@@ -125,8 +125,6 @@
 
 .card {
   @include desktop-breakpoint {
-    // background: #ff184c;
-
     background: url("../assets/person-coding-desk.jpeg");
     background-size: cover;
     padding: 2rem 0.3rem;
@@ -176,7 +174,7 @@
   }
   &__img {
     width: 100%;
-    height: 239px;
+    height: 15rem;
 
     img {
       width: 100%;
@@ -275,8 +273,8 @@
   }
 
   &__crypto-img {
-    height: 500px;
-    width: 500px;
+    height: 31.25rem;
+    width: 31.25rem;
     background-image: url(../assets/people-chatting.jpeg);
     background-repeat: none;
     background-size: cover;
